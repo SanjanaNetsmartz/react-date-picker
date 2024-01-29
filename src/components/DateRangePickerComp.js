@@ -26,7 +26,12 @@ const DateRangePickerComp = () => {
     key,
   };
 
-  return <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />;
+  const maximumDate = new Date();
+  maximumDate.setDate(startDate.getDate() + 15);
+
+  return (
+    <DateRangePicker minDate={startDate} maxDate={maximumDate} ranges={[selectionRange]} onChange={handleSelect} />
+  );
 };
 
 export default DateRangePickerComp;
